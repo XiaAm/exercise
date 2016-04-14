@@ -65,7 +65,6 @@ public class ServiceGetJson {
 					obj.put(names[j], number);
 				}
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
