@@ -17,11 +17,12 @@ import org.json.JSONObject;
 public class ServiceGetJson {
 	
 	public String result2JSON(int n, String file_tobe_transform) throws InputShouldBePositiveException, FileNotFoundException {
-		if (n < 0) {
+		if (n <= 0) {
 			throw new InputShouldBePositiveException(n);
 		} else if(Files.notExists(Paths.get(file_tobe_transform))){
 			throw new FileNotFoundException();
 		}else {
+			//the result is also saved in json_result.txt in the same directory as the input file
 			String jsonResult = "";
 			String[] s_array = file_tobe_transform.split("/");
 			s_array[s_array.length - 1] = "json_result.txt";
@@ -52,12 +53,15 @@ public class ServiceGetJson {
 		}
 	}
 	
+	//this function transform a line of String to a Json document, it will be applied to each line of 
+	//the output of the second exercise
 	private static JSONObject string2JSON(String s){
 		String[] names = new String[]{"airport", "city", "number_passengers"};
 		JSONObject obj = new JSONObject();
 		String[] s_json = s.split("\\s+");
 		for(int j=0; j<s_json.length; j++){
 			try {
+				//put the number in format int, not in their original format String
 				if(!s_json[j].matches("\\d+")){
 					obj.put(names[j], s_json[j]);
 				}else{
