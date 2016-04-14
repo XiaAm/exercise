@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -36,6 +36,7 @@
   <ns2:operation name="result2JSON" qname="ns1:result2JSON" returnQName="ns1:result2JSONReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://main" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
    <ns2:parameter qname="ns1:n" type="xsd:int"/>
    <ns2:parameter qname="ns1:file_tobe_transform" type="xsd:string"/>
+   <ns2:fault class="main.InputShouldBePositiveException" qname="ns1:fault" type="ns1:InputShouldBePositiveException"/>
   </ns2:operation>
   <ns1:parameter name="allowedMethods" value="result2JSON"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
@@ -45,6 +46,7 @@
   <ns1:parameter name="schemaQualified" value="http://main"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://main"/>
   <ns1:parameter name="wsdlServiceElement" value="ServiceGetJsonService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns2:InputShouldBePositiveException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:main.InputShouldBePositiveException" xmlns:ns2="http://main"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>

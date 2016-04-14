@@ -23,8 +23,17 @@
       <operation name="result2JSON" qname="operNS:result2JSON" xmlns:operNS="http://main" returnQName="retNS:result2JSONReturn" xmlns:retNS="http://main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:n" xmlns:pns="http://main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:file_tobe_transform" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="InputShouldBePositiveException" qname="fns:fault" xmlns:fns="http://main" class="main.InputShouldBePositiveException" type="tns:InputShouldBePositiveException" xmlns:tns="http://main"/>
       </operation>
       <parameter name="allowedMethods" value="result2JSON"/>
 
+      <typeMapping
+        xmlns:ns="http://main"
+        qname="ns:InputShouldBePositiveException"
+        type="java:main.InputShouldBePositiveException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
   </service>
 </deployment>

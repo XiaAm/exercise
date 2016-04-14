@@ -19,6 +19,10 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <complexType name="InputShouldBePositiveException">
+    <sequence/>
+   </complexType>
+   <element name="fault" type="impl:InputShouldBePositiveException"/>
   </schema>
  </wsdl:types>
 
@@ -38,6 +42,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="InputShouldBePositiveException">
+
+      <wsdl:part element="impl:fault" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:portType name="ServiceGetJson">
 
       <wsdl:operation name="result2JSON">
@@ -49,6 +61,10 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          <wsdl:output message="impl:result2JSONResponse" name="result2JSONResponse">
 
        </wsdl:output>
+
+         <wsdl:fault message="impl:InputShouldBePositiveException" name="InputShouldBePositiveException">
+
+       </wsdl:fault>
 
       </wsdl:operation>
 
@@ -73,6 +89,12 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
             <wsdlsoap:body use="literal"/>
 
          </wsdl:output>
+
+         <wsdl:fault name="InputShouldBePositiveException">
+
+            <wsdlsoap:fault name="InputShouldBePositiveException" use="literal"/>
+
+         </wsdl:fault>
 
       </wsdl:operation>
 
